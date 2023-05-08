@@ -51,13 +51,20 @@ for (let i = 0; i < elements.length; i++) {
     }
 };
 
-const arrayGenerator = (grid) => {
+const arrayGenerator = () => {
     let tableInfo = Array.prototype.map.call(document.querySelectorAll('tr'), function(tr){
         return Array.prototype.map.call(tr.querySelectorAll('td'), function(td){
-            for (i)
-            console.log(td);
-          return td.innerHTML;
+            if (td.className == 'highlighted')
+            {
+                td.value = 1;
+            }
+            else{
+                td.value = 0;
+            }
+            console.log(td.value);
+          return td.value;
           
           });
+          
         });
  };
