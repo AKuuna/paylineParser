@@ -17,7 +17,8 @@ if (document.getElementById('table1') != null)
         const newRow = document.createElement("tr");
         for(let j = 1; j <= column; j++) {
             const newSquare = document.createElement("td");
-            newSquare.onclick = changeColor;
+            console.log(newSquare);
+            newSquare.className = "squares";
             newRow.appendChild(newSquare);
         }
         grid.appendChild(newRow);
@@ -26,35 +27,37 @@ if (document.getElementById('table1') != null)
     grid.id = "table1";
     document.getElementById("button-generate").removeAttribute("hidden");
     console.log(grid);
+    assignEventHandler();
+    
     return grid;
+    
 };
 
-const changeColor = () => {
-    console.log('clicked'); 
-    // if (this.style.backgroundColor == 'green') {
-    //     this.style.backgroundColor = 'white';
-    // } else {
-    //     this.style.backgroundColor = 'green';
-    // }
-    if(this.className == 'highlighted') {
-        this.className = '';
-        console.log('uncolored');
-    }
-    else {
-        this.className = 'highlighted';
-        console.log('colored');
-    }
+const assignEventHandler = () => {
+let elements = document.getElementsByClassName("squares");
 
+for (let i = 0; i < elements.length; i++) {
+    elements[i].addEventListener("click", function changeColor(){
+        console.log('clicked'); 
+        if(this.className == 'highlighted') {
+            this.className = '';
+            console.log('uncolored');
+        }
+        else {
+            this.className = 'highlighted';
+            console.log('colored');
+        }
+    });
+    }
 };
-
 
 const arrayGenerator = (grid) => {
-    let result  = [].reduce.call(grid.row, function (result, row) {
-        result.push([].reduce.call(row.column, function(res, cell) {
-            res.push(cell.textContent);
-            return res;
-        }, []));
-        return result;
-    }, []);
-    return result;
+    let tableInfo = Array.prototype.map.call(document.querySelectorAll('tr'), function(tr){
+        return Array.prototype.map.call(tr.querySelectorAll('td'), function(td){
+            for (i)
+            console.log(td);
+          return td.innerHTML;
+          
+          });
+        });
  };
