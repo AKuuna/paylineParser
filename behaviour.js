@@ -4,6 +4,9 @@ let grid = [];
 let arrayInfo = ' ';
 let arrayNumber = 0;
 let nextArray =[];
+const result = document.getElementById("result");
+
+
 const createGrid = () => {
 
 if (document.getElementById('table1') != null)
@@ -55,7 +58,6 @@ const assignEventHandler = () => {
 };
 
 const arrayGenerator = () => {
-    arrayInfo = document.getElementById("result").value;
     //console.log(nextArray.length);
     if( nextArray.length != 0)
     {
@@ -63,21 +65,28 @@ const arrayGenerator = () => {
         console.log(`There are ${arrayNumber} arrays!`);
         nextArray = arrayAdd();
         //console.log(`array next: ${nextArray}`);
-        arrayInfo = `${arrayInfo},\n[${nextArray}]`;
+        arrayInfo += `, \n[${nextArray}]`;
         console.log(`arrays inf:`);
         console.log(arrayInfo);
-        document.getElementById("result").value = `${arrayInfo}`;
+        result.value = `${arrayInfo}`;
     } else {
         console.log('First array!');
         arrayNumber++;
         nextArray = arrayAdd();
         arrayInfo = `[${nextArray}]`;
         console.log(arrayInfo);
-        document.getElementById("result").value = `${arrayInfo}`;
+        result.value = `${arrayInfo}`;
+        document.getElementById("button-delete").removeAttribute("hidden");
     }
     return nextArray;
 };
 
+
+const deleteLastArray = () => {
+    arrayInfo = arrayInfo.replace(`, \n[${nextArray}]`, "");
+    console.log(arrayInfo);
+    result.value = `${arrayInfo}`;
+}
 
 const arrayAdd = () => {
     let table = document.getElementById('table1');
