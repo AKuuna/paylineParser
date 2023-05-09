@@ -21,7 +21,7 @@ if (document.getElementById('table1') != null)
         const newRow = document.createElement("tr");
         for(let j = 1; j <= column; j++) {
             const newSquare = document.createElement("td");
-            console.log(newSquare);
+            //console.log(newSquare);
             newSquare.className = "squares";
             newRow.appendChild(newSquare);
         }
@@ -44,11 +44,11 @@ const assignEventHandler = () => {
         elements[i].addEventListener("click", function changeColor(){
             if(this.className == 'highlighted') {
                 this.className = '';
-                console.log('uncolored');
+                //console.log('uncolored');
             }
             else {
                 this.className = 'highlighted';
-                console.log('colored');
+                //console.log('colored');
             }
         });
     }
@@ -56,21 +56,23 @@ const assignEventHandler = () => {
 
 const arrayGenerator = () => {
     arrayInfo = document.getElementById("result").value;
-    console.log(nextArray.length);
+    //console.log(nextArray.length);
     if( nextArray.length != 0)
     {
         arrayNumber++;
-        console.log(`${arrayNumber} array!`);
+        console.log(`There are ${arrayNumber} arrays!`);
         nextArray = arrayAdd();
-        console.log(`array next: ${nextArray}`);
-        arrayInfo = `${arrayInfo} ,\r\n [${nextArray}]`;
-        console.log(`array inf:`);
+        //console.log(`array next: ${nextArray}`);
+        arrayInfo = `${arrayInfo},\n[${nextArray}]`;
+        console.log(`arrays inf:`);
         console.log(arrayInfo);
         document.getElementById("result").value = `${arrayInfo}`;
     } else {
         console.log('First array!');
+        arrayNumber++;
         nextArray = arrayAdd();
         arrayInfo = `[${nextArray}]`;
+        console.log(arrayInfo);
         document.getElementById("result").value = `${arrayInfo}`;
     }
     return nextArray;
@@ -87,11 +89,11 @@ const arrayAdd = () => {
             if(row.cells[j].className == 'highlighted')
             {
                 arrayTemp.push(`[${j}, ${i}] `);
-                console.log(arrayTemp);
+                //console.log(arrayTemp);
             }
         }
     }
     newArray = arrayTemp.sort();
-    console.log(newArray);
+    //console.log(newArray);
     return newArray;
 };
