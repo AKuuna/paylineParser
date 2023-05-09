@@ -86,6 +86,7 @@ const deleteLastArray = () => {
     arrayInfo = arrayInfo.replace(`, \n[${nextArray}]`, "");
     console.log(arrayInfo);
     result.value = `${arrayInfo}`;
+    arrayNumber--;
 }
 
 const arrayAdd = () => {
