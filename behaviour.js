@@ -1,11 +1,11 @@
 let row;
 let column;
 let grid = [];
-let arrayInfo = ' ';
+let arrayInfo = '';
 let arrayNumber = 0;
 let nextArray =[];
 const result = document.getElementById("result");
-
+const allArrays = {};
 
 const createGrid = () => {
 
@@ -33,8 +33,8 @@ if (document.getElementById('table1') != null)
     document.getElementById("main1").appendChild(grid);
     grid.id = "table1";
     document.getElementById("button-generate").removeAttribute("hidden");
-    document.getElementById("result").removeAttribute("hidden");
-    console.log(grid);
+    document.getElementById("result").style.display="flex";
+    //console.log(grid);
     assignEventHandler();
     return grid;
     
@@ -48,8 +48,7 @@ const assignEventHandler = () => {
             if(this.className == 'highlighted') {
                 this.className = '';
                 //console.log('uncolored');
-            }
-            else {
+            } else {
                 this.className = 'highlighted';
                 //console.log('colored');
             }
