@@ -74,7 +74,7 @@ const arrayGenerator = () => {
         nextArray = arrayAdd();
         arrayInfo = `[${nextArray}]`;
         console.log(arrayInfo);
-        result.value = `${arrayInfo}`;
+        result.value = `${arrayInfo}`+"\n";
         document.getElementById("button-delete").removeAttribute("hidden");
     }
     return nextArray;
@@ -84,7 +84,7 @@ const arrayGenerator = () => {
 const deleteLastArray = () => {
     arrayInfo = arrayInfo.replace(`, \n[${nextArray}]`, "");
     console.log(arrayInfo);
-    result.value = `${arrayInfo}`;
+    result.value =  `${arrayInfo}`;
     arrayNumber--;
 }
 
