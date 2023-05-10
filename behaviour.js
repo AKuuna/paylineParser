@@ -1,3 +1,5 @@
+//TODO: allArrays to be used to deleteLastArray
+
 let row;
 let column;
 let grid = [];
@@ -5,7 +7,7 @@ let arrayInfo = '';
 let arrayNumber = 0;
 let nextArray =[];
 const result = document.getElementById("result");
-const allArrays = {};
+let allArrays = [[]];
 
 const createGrid = () => {
 
@@ -80,11 +82,10 @@ const arrayGenerator = () => {
     return nextArray;
 };
 
-
 const deleteLastArray = () => {
     arrayInfo = arrayInfo.replace(`, \n[${nextArray}]`, "");
     console.log(arrayInfo);
-    result.value =  `${arrayInfo}`;
+    result.value = `${arrayInfo}`;
     arrayNumber--;
 }
 
@@ -97,12 +98,13 @@ const arrayAdd = () => {
         for (let j = 0, column; column = row.cells[j]; j++) {
             if(row.cells[j].className == 'highlighted')
             {
-                arrayTemp.push(`[${j}, ${i}] `);
+                arrayTemp.push(`[${j}, ${i}]`);
                 //console.log(arrayTemp);
             }
         }
     }
-    newArray = arrayTemp.sort();
-    //console.log(newArray);
+    newArray = [arrayTemp.sort()];
+    allArrays += newArray;
+    //console.log(allArrays);
     return newArray;
 };
